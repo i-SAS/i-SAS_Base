@@ -1,0 +1,43 @@
+[tool.poetry]
+name = "isas_base"
+version = "1.0.0"
+description = "Implementation of base package for i-SAS."
+authors = ["Makito Kobayashi", "Kohei Mikami"]
+repository = "https://github.com/i-SAS/i-SAS_Base"
+packages = [
+    { include = "isas_base" },
+]
+
+[tool.poetry.dependencies]
+python = ">=3.11,<3.12"
+influxdb_client = "*"
+numpy = "*"
+pandas = "*"
+pg8000 = "*"
+pyyaml = "*"
+sqlalchemy = "*"
+
+[tool.poetry.dev-dependencies]
+flake8 = "6.1.0"
+flake8-isort = "*"
+flake8-quotes = "*"
+ipython = "*"
+jupyter = "*"
+pep8-naming = "*"
+pyproject-flake8 = "*"
+
+[tool.poetry.scripts]
+isas_download = 'isas_base.utils.download:main'
+
+[tool.isort]
+multi_line_output = 5
+
+[tool.flake8]
+max-line-length = 120
+exclude = [
+    "*/__init__.py",
+    ]
+
+[build-system]
+requires = ["poetry_core>=1.3.2"]
+build-backend = "poetry.core.masonry.api"

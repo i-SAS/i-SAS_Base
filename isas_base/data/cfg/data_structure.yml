@@ -1,0 +1,50 @@
+000_service_metadata:
+    service_name: str
+001_time_series_batch_metadata:
+    id: str
+    service_name: str
+    batch_datetime: datetime64[ns]
+002_time_series_batch_dependencies:
+    id: Int64
+    batch_id: str
+    dependent_batch_id: str
+010_time_series_metadata:
+    data_name: str
+    coord_sys: str
+011_time_series_structural_models:
+    id: Int64
+    data_name: str
+    structural_model_name: str
+    component_name: str
+# 012_time_series_structural_model_connection:
+013_time_series_sensors:
+    id: Int64
+    data_name: str
+    sensor_name: str
+020_instance_metadata:
+    instance_name: str
+    model_name: str
+    service_name: str
+021_instance_inputs:
+    id: Int64
+    instance_name: str
+    data_name: str
+022_instance_outputs:
+    id: Int64
+    instance_name: str
+    data_name: str
+030_sensor_metadata:
+    sensor_name: str
+    locational: bool
+    directional: bool
+# 031_sensor:
+032_sensors_structural_models:
+    id: Int64
+    sensor_name: str
+    structural_model_name: str
+    component_name: str
+# 033_sensor_structural_model_connection:
+040_structural_model_metadata:
+    structural_model_name: str
+    model_type: str
+# 041_structural_model:
