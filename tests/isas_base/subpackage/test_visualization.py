@@ -1,6 +1,8 @@
 import unittest
 from pathlib import Path
 
+from PySide6 import QtWidgets
+
 from isas_base.subpackage import BaseVisualization
 from isas_base.subpackage.tests import VisualizationTestFactory
 
@@ -22,6 +24,9 @@ class VisualizationTmp(BaseVisualization):
 
     def __call__(self, time_series_dataset, variables):
         return {}, {}
+
+    def _create_widget(self):
+        return QtWidgets.QWidget()
 
     def exit(self):
         pass

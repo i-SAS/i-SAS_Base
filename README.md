@@ -1,13 +1,10 @@
-# i-SAS_Base_MIT
+# i-SAS_Base
 Implementation of the base package for i-SAS.
-
-> [!IMPORTANT]
-> This repository is not complete but development has been stopped.
 
 ## 1. Clone
 ```shell
-$ git clone git@github.com:i-SAS/i-SAS_Base_MIT.git
-$ cd i-SAS_Base_MIT
+$ git clone git@github.com:i-SAS/i-SAS_Base.git
+$ cd i-SAS_Base
 ```
 
 ## 2. Docker build & run

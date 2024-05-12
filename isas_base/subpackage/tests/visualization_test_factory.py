@@ -1,3 +1,5 @@
+from PySide6 import QtWidgets
+
 from .base_test_factory import BaseTest, BaseTestFactory, BaseTestInit
 
 
@@ -63,11 +65,19 @@ class VisualizationTestFactory(BaseTestFactory):
             @classmethod
             def setUpClass(cls):
                 super().setUpClass()
+                # Must construct a QApplication before a QWidget
+                cls.app = QtWidgets.QApplication.instance()
+                if not cls.app:
+                    cls.app = QtWidgets.QApplication()
 
             @classmethod
             def tearDownClass(cls):
                 cls.app.quit()
                 super().tearDownClass()
+
+            def test_create_widget(self):
+                widget = self.model.create_widget()
+                self.assertIsInstance(widget, QtWidgets.QWidget)
 
             def test_set_model(self):
                 self.model.create_widget()
