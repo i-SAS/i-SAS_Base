@@ -2,6 +2,8 @@ import itertools
 from abc import ABCMeta, abstractmethod
 from logging import getLogger
 
+from PySide6 import QtWidgets
+
 from .base import Base
 
 logger = getLogger(__name__)
@@ -130,3 +132,25 @@ class BaseVisualization(Base, metaclass=ABCMeta):
         if not all([isinstance(n, int) and 1 <= n <= 12 for n in size_ratio]):
             raise ValueError('The number of size ratio must be int with in [1, 12].')
         return input_data_name_dict, output_data_name_dict
+
+    def create_widget(self) -> QtWidgets.QWidget:
+        """Create widget.
+
+        Returns:
+            A widget of Qt.
+        """
+        self.widget = self._create_widget()
+        size_policy = self.widget.sizePolicy()
+        size_policy.setVerticalStretch(self.size_ratio[0])
+        size_policy.setHorizontalStretch(self.size_ratio[1])
+        self.widget.setSizePolicy(size_policy)
+        return self.widget
+
+    @abstractmethod
+    def _create_widget(self) -> QtWidgets.QWidget:
+        """Arbitrary process executed in widget creating.
+
+        Returns:
+            A widget of Qt.
+        """
+        raise NotImplementedError()

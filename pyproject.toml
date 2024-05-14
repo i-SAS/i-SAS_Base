@@ -13,8 +13,9 @@ python = ">=3.11,<3.12"
 influxdb_client = "*"
 numpy = "*"
 pandas = "*"
-pg8000 = "*"
+psycopg2 = "*"
 pyyaml = "*"
+pyside6 = "*"
 sqlalchemy = "*"
 
 [tool.poetry.dev-dependencies]
